@@ -30,10 +30,16 @@ function displayScore(scorePlayer1, scorePlayer2) {
 }
 
 function resetGame() {
-  if (ballX > width) {
+  if (gameEnded == true) {
     setTimeout(() => {
       ballX = window.innerWidth / 2;
       ballY = window.innerHeight / 2;
+      ball.style.left = ballX + "px";
+      ball.style.top = ballY + "px";
+      gameEnded = false;
+      window.requestAnimationFrame(() => {
+        moveBall(true, 0); // true comme valeur par défaut au lancement du jeu
+      });
     }, 2000);
   }
 }
@@ -74,7 +80,7 @@ document.addEventListener("keydown", function (event) {
 });
 
 function moveBall(directionX, directionY) {
-  if (gameEnded == false && ballX < width) {
+  if (gameEnded == false && ballX < width && ballX > 0) {
     /* on avance la ball vers la droit */
 
     if (directionX == true) {
@@ -164,10 +170,10 @@ function moveBall(directionX, directionY) {
     }, 20);
   } else {
     gameEnded = true;
-    if (directionX == true && gameEnded == true) {
+    if (directionX == true && ballX >= width) {
       scorePlayer1++;
     }
-    if (directionX == false && gameEnded == true) {
+    if (directionX == false && ballX <= 0) {
       scorePlayer2++;
     }
     displayScore(scorePlayer1, scorePlayer2);
