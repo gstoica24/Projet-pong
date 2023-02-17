@@ -8,14 +8,33 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <div id="ping"></div>
+    <img class="golImg1" src="./photo/goal-football.gif" alt="" />
+    <img class="golImg2" src="./photo/goal-football (2).gif" alt="" />
 
-    <i></i>
+    <div id="ping"><img src="./photo/player 2 copie.webp" alt="" /></div>
 
-    <div id="pong"></div>
+    <i class="ballImg"
+      ><img
+        src="./photo/39-390489_flame-fire-icon-transparent-flaming-soccer-ball-hd-modified.webp"
+        alt=""
+    /></i>
+
+    <div id="pong">
+      <img src="./photo/player 1 copie.webp" alt="playerDroite" />
+    </div>
 
     <h2 class="player1">score Player 1 : <span class="score1">0</span></h2>
     <h2 class="player2">score Player 2 : <span class="score2">0</span></h2>
+    <audio controls autoplay loop>
+      <source
+        src="./sound/Sports Stadium Crowd Cheering Sound Effect.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+
+    <audio controls id="gol">
+      <source src="./sound/Goal Soccer Sound Effect.mp3" type="audio/mpeg" />
+    </audio>
   </body>
   <script src="./index.js"></script>
 </html>

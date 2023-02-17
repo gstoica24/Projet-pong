@@ -37,10 +37,12 @@ function resetGame() {
       ball.style.left = ballX + "px";
       ball.style.top = ballY + "px";
       gameEnded = false;
+      document.querySelector(".golImg1").style.display = "none";
+      document.querySelector(".golImg2").style.display = "none";
       window.requestAnimationFrame(() => {
         moveBall(true, 0); // true comme valeur par défaut au lancement du jeu
       });
-    }, 2000);
+    }, 10000);
   }
 }
 
@@ -172,9 +174,17 @@ function moveBall(directionX, directionY) {
     gameEnded = true;
     if (directionX == true && ballX >= width) {
       scorePlayer1++;
+      let a = document.getElementById("gol");
+      document.querySelector(".golImg1").style.display = "block";
+
+      a.play();
     }
     if (directionX == false && ballX <= 0) {
       scorePlayer2++;
+      let a = document.getElementById("gol");
+      document.querySelector(".golImg2").style.display = "block";
+
+      a.play();
     }
     displayScore(scorePlayer1, scorePlayer2);
     resetGame();
